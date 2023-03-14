@@ -1,4 +1,5 @@
-  def initialize(name)
+class Reminder
+def initialize(name)
     @name = name
   end
 
