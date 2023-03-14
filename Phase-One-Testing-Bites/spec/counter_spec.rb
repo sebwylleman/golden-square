@@ -1,6 +1,6 @@
 require 'counter'
 
-describe "Counter" do
+describe "Counter class" do
   it "Keeps count of the numbers we give it" do
     count_1 = Counter.new
     count_1.add(2)

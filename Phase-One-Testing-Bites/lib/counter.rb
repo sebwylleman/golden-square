@@ -10,4 +10,4 @@ class Counter
   def report
      return "Counted to #{@count} so far"
   end
-end
+endz
