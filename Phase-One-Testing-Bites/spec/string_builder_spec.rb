@@ -1,27 +1,31 @@
 require "string_builder"
 
-describe "String Builder class" do
-  describe "add" do
-    it "creates a string from user input" do
-      string1 = StringBuilder.new
-      expect(string1.add("hello")).to eq "hello"
-     end
+describe "StringBuilder class" do
+  it "returns empty string" do
+    str1 = StringBuilder.new
+    expect(str1.output).to eq ""
   end
-  
-  describe "size" do
-    it "returns the number of characters in string" do
-      string1 = StringBuilder.new
-      string1.add("hello")
-      expect(string1.size).to eq 5
+
+  it "returns number of characters of string" do
+    str1 = StringBuilder.new
+    expect(str1.size).to eq 0
+  end
+
+  context "Given many additions of strings" do
+    it "returns length of mutliple strings" do
+      str1 = StringBuilder.new
+      str1.add("Hello ")
+      str1.add("World")
+      str1.add("!")
+      expect(str1.size).to eq 12
     end
 
-    describe "output" do
-      it "returns a string from the inputed string" do
-        string1 = StringBuilder.new
-        string1.add("hello")
-        expect(string1.output).to eq "hello"
-      end
+    it "returns concatenated string inputs" do
+      str1 = StringBuilder.new
+      str1.add("Hello ")
+      str1.add("World")
+      str1.add("!")
+      expect(str1.output).to eq "Hello World!"
     end
-
   end
 end
