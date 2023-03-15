@@ -1,6 +1,12 @@
 require "make_snippet"
 
 RSpec.describe "make_snippet method" do
+
+  context "Given an empty string" do
+    it "returns an empty string" do
+      expect(make_snippet("")).to eq ""
+    end
+  end
   context "Given a string of 4 words" do
     it "returns the whole string" do
       result = make_snippet("Test driven development is an")
