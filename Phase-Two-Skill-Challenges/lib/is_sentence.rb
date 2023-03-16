@@ -17,9 +17,5 @@ def is_sentence?(sentence)
     end
   end
  
-  if is_cap == true && is_punc == true
-    true 
-  else
-    false
-  end
+is_cap == true && is_punc == true ? true : false
 end
