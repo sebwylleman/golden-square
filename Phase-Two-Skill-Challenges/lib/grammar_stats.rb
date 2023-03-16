@@ -4,10 +4,7 @@ class GrammarStats
     @total = 0
   end
 
-  def check(text) # text is a string
-    # Returns true or false depending on whether the text begins with a capital
-    # letter and ends with a sentence-ending punctuation mark.
-
+  def check(text)
     return false if text == ""
 
     is_cap = false

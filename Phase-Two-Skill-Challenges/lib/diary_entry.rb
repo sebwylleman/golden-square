@@ -1,18 +1,15 @@
 class DiaryEntry
   def initialize(title, contents) 
-    # title, contents are strings
     @title = title
     @contents = contents
     @furthest_word_read = 0
   end
 
   def title
-    # Returns the title as a string
     @title
   end
 
   def contents
-    # Returns the contents as a string
     @contents
   end
 
@@ -28,10 +25,14 @@ class DiaryEntry
   def reading_chunk(wpm, minutes)
     num_words_we_can_read = wpm * minutes
     start_from = @furthest_word_read
-    end_at = start_from + num_words_we_can_read - 1
+    end_at = start_from + num_words_we_can_read
     words = @contents.split
-    chunk = words[start_from..end_at].join(" ")
-    @furthest_word_read = (end_at + 1) % words.size
+    chunk = words[start_from...end_at].join(" ")
+    if end_at > count_words
+      @furthest_word_read = 0
+    else
+      @furthest_word_read = end_at
+    end
     chunk
   end   
 end  

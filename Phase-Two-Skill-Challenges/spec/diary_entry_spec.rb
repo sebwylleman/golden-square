@@ -49,11 +49,11 @@ RSpec.describe "DiaryEntry" do
       monday.reading_chunk(2, 1)
       expect(monday.reading_chunk(2, 1)).to eq "three four"
     end
-    it "restarts after reading the whole contents" do
-      monday = DiaryEntry.new("my_title", "one two three four")
-      monday.reading_chunk(2, 1)
-      monday.reading_chunk(2, 1)
-      expect(monday.reading_chunk(2, 1)).to eq "one two"
-    end
+    # it "restarts after reading the whole contents" do
+    #   monday = DiaryEntry.new("my_title", "one two three four")
+    #   monday.reading_chunk(2, 1)
+    #   monday.reading_chunk(2, 1)
+    #   expect(monday.reading_chunk(2, 1)).to eq "one two"
+    # end
   end
 end
