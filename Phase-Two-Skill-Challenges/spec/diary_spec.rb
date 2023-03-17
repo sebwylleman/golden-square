@@ -7,4 +7,8 @@ RSpec.describe "diary class" do
     expect(diary.all).to eq []
     end
   end
+  it "has a word count of zero" do
+    diary = Diary.new
+    expect(count_words).to eq 0
+  end
 end
