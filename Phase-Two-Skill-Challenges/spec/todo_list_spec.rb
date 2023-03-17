@@ -11,6 +11,14 @@ RSpec.describe "TodoList class" do
       expect { today.completed("Go gym") }.to raise_error "list is empty, can't remove todo"
     end
   end
+  context "when we remove a non existing task" do
+    it "throws an error message" do
+      today = TodoList.new
+      today.add("Buy groceries")
+      expect { today.completed("Go gym") }.to raise_error "completed todo is not included in the list, can't remove it"
+    end
+  end
+
   context "desired behaviour (happy path)" do
     it "adds todos to list and sees them" do
       today = TodoList.new
