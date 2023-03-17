@@ -10,7 +10,7 @@ class TodoList
 
   def completed(todo)
     fail "list is empty, can't remove todo" if @todo_list == []
-    fail "completed todo is not included in the list, can't remove it" if !@todo_list.include?(todo)
+    fail "completed todo is not included in the list, can't remove it" unless @todo_list.include?(todo)
     @todo_list.delete(todo)
   end
 
