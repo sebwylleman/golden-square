@@ -1,5 +1,7 @@
 class TodoList
 
+  attr_reader :list
+
   def initialize
     @list = []
   end
@@ -10,14 +12,15 @@ class TodoList
   end
 
   def incomplete
-    # Returns all non-done todos
+    @list.reject(&:done?)
   end
 
   def complete
-    # Returns all complete todos
+    @list.select(&:done?)
   end
 
   def give_up!
     # Marks all todos as complete
+    @list.each(&:mark_done!)
   end
 end
