@@ -1,21 +1,23 @@
 class TodoList
 
   def initialize
-    @todo_list = []
+    @list = []
   end
 
-  def add(todo)
-    @todo_list << todo
+  def add(todo) # todo is an instance of Todo
+    # Returns nothing
+    @list << todo
   end
 
-  def completed(todo)
-    fail "list is empty, can't remove todo" if @todo_list == []
-    fail "completed todo is not included in the list, can't remove it" unless @todo_list.include?(todo)
-    @todo_list.delete(todo)
+  def incomplete
+    # Returns all non-done todos
   end
 
-  def list
-  fail "no todos on list" if @todo_list == []
-   @todo_list
+  def complete
+    # Returns all complete todos
+  end
+
+  def give_up!
+    # Marks all todos as complete
   end
 end
