@@ -4,9 +4,10 @@ class Todo2
   def initialize(description, due_date)
     @description = description
     @due_date = due_date
+    @completed = false
   end
 
   def completed?
-
+    @completed
   end
 end
