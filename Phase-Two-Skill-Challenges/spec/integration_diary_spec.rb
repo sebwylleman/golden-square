@@ -1,13 +1,6 @@
 require "diary"
 require "diary_entry"
 
-# Test that filtering DiaryEntries by date range returns only the entries that fall within that range
-# Test that filtering DiaryEntries by keyword returns only the entries that contain that keyword
-# Test that filtering DiaryEntries by contact returns only the entries that contain that contact information
-# Test that sorting DiaryEntries by date returns the entries in chronological order
-# Test that sorting DiaryEntries by length of content returns the entries in order from shortest to longest
-# Test that sorting DiaryEntries by contact returns the entries in alphabetical order by contact name
-
 RSpec.describe "Integration test for our diary" do
 let(:sebs_diary) {Diary.new}
 let(:entry1) {DiaryEntry.new("12/12/12", "First holiday abroad with Ben, backpacking in India", "Ben: 07777777199")}
@@ -34,5 +27,3 @@ end
     expect(sebs_diary.list_all_contacts).to eq [entry1.contact, entry2.contact].join(",")
   end
 end
-
-    
