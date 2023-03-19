@@ -34,5 +34,6 @@ class Diary
   end
 
   def list_all_phone_numbers
+    
   end
 end
