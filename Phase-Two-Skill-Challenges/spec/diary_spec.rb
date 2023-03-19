@@ -2,8 +2,8 @@ require "diary"
 
 RSpec.describe "Diary class" do
   let(:sebs_diary) {Diary.new}
-  let(:entry1) {double(:entry1, date: "12/12/12", content: "First holiday abroad with Ben, backpacking in India", contact: "07777777199")}
-  let(:entry2) {double(:entry2, date: "17/17/17", content: "First driving lesson with Charlie", contact: "07799777199")}
+  let(:entry1) {double(:entry1, date: "12/12/12", content: "First holiday abroad with Ben, backpacking in India", contact: "Ben: 07777777199")}
+  let(:entry2) {double(:entry2, date: "17/17/17", content: "First driving lesson with Charlie", contact: "Charlie: 07799777199")}
 
   context "when no entries given" do
     it "sets the diary entries to an empty array" do
@@ -38,7 +38,7 @@ RSpec.describe "Diary class" do
     it "lists all contacts with phone numbers from diary entries" do
       sebs_diary.add_entry(entry1)
       sebs_diary.add_entry(entry2)
-      expect(sebs_diary.list_all_contacts).to eq [entry1.contact, entry2.contact]
+      expect(sebs_diary.list_all_contacts).to eq [entry1.contact, entry2.contact].join(",")
     end
   end
 end

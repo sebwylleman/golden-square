@@ -33,7 +33,8 @@ class Diary
   end
 
   def list_all_contacts
-    
+    contact_list = @entries.map {|entry| entry.contact}
+    contact_list.join(",")
   end
 end
   
