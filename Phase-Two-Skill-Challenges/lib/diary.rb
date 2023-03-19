@@ -21,7 +21,6 @@ class Diary
     words_read = 0
   
     sorted_entries = @entries.sort_by { |entry| entry.content.split(" ").length }
-    puts "Sorted entries: #{sorted_entries.inspect}"
     result = []
   
     sorted_entries.each do |entry|
@@ -34,6 +33,8 @@ class Diary
   end
 
   def list_all_phone_numbers
-    
+    phone_numbers = @entries.map(&:phone_num).join(" ")
+    phone_numbers
   end
 end
+  
