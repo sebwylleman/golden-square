@@ -5,5 +5,6 @@ class DiaryEntry
   def initialize(date, content, contact)
     @date = date
     @content = content
-    @phone_num = phone_num
+    @contact = contact
   end 
+end
