@@ -13,6 +13,7 @@ class Todo2list
     @entries
   end
 
-  def complete
+  def complete(task)
+    task.complete
   end
 end

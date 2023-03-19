@@ -1,19 +1,22 @@
 require "todo2"
 
-RSpec.describe "todo tasks class" do
-  let(:task1) {Todo2.new("Go gym", "12/12/12")}
+RSpec.describe Task do
+  let(:task) { Task.new("Buy groceries") }
 
-  it "checks that the todo has the correct attribute value from the user input" do
-    expect(task1.description).to eq "Go gym"
-  end
-  it "checks that the todo has the correect attribute value from the user input" do
-    expect(task1.due_date).to eq "12/12/12"
+  describe '#initialize' do
+    it 'initializes a new task with the given description' do
+      expect(task.description).to eq("Buy groceries")
+    end
+
+    it 'initializes a new task as not completed' do
+      expect(task.completed?).to be false
+    end
   end
 
-  describe "#completed method" do
-    it "returns true if task is completed, false by default" do
-      expect(task1.completed?).to eq false
+  describe '#complete' do
+    it 'marks a task as completed' do
+      task.complete
+      expect(task.completed?).to be true
     end
   end
 end
-

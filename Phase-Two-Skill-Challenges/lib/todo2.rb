@@ -1,10 +1,13 @@
-class Todo2
-  attr_reader :description, :due_date
+class Task
+  attr_reader :description, :completed
 
-  def initialize(description, due_date)
+  def initialize(description)
     @description = description
-    @due_date = due_date
     @completed = false
+  end
+
+  def complete
+    @completed = true
   end
 
   def completed?
