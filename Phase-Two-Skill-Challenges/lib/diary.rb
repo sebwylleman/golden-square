@@ -1,40 +1,38 @@
 class Diary
+
+  attr_reader :entries
+
   def initialize
     @entries = []
   end
 
-  def add(entry) # entry is an instance of DiaryEntry
-    @entries << entry
+  def add_entry(diary_entry)
+    @entries << diary_entry
   end
 
-  def all
-    # Returns a list of instances of DiaryEntry
-    @entries  
+  def read_entry(chosen_date)
+   entry = @entries.find {|entry| entry.date == chosen_date}
+   fail "no entries for chosen date" if entry.nil?
+   entry.content
   end
 
-  def count_words
-    @entries.sum(&:count_words)
-    # Returns the number of words in all diary entries
-    # HINT: This method should make use of the `count_words` method on DiaryEntry.
-  end 
-
-  def reading_time(wpm) # wpm is an integer representing
-                        # the number of words the user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # if the user were to read all entries in the diary.
-    fail "wmp speed can't be 0" if wpm == 0
-    @entries.sum do |entry|
-      entry.reading_time(wpm)
+  def read_entries_by_time(wpm, available_time)
+    total_words = wpm * available_time
+    words_read = 0
+  
+    sorted_entries = @entries.sort_by { |entry| entry.content.split(" ").length }
+    puts "Sorted entries: #{sorted_entries.inspect}"
+    result = []
+  
+    sorted_entries.each do |entry|
+      word_count = entry.content.split(" ").length
+      break if words_read + word_count > total_words
+      result << entry
+      words_read += word_count
     end
+    result.map(&:content).join(" ")
   end
 
-  def find_best_entry_for_reading_time(wpm, minutes)
-        # `wpm` is an integer representing the number of words the user can read
-        # per minute.
-        # `minutes` is an integer representing the number of minutes the user
-        # has to read.
-    # Returns an instance of diary entry representing the entry that is closest 
-    # to, but not over, the length that the user could read in the minutes they
-    # have available given their reading speed.
+  def list_all_phone_numbers
   end
 end
