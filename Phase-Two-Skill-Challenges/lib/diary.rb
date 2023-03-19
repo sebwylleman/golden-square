@@ -32,9 +32,8 @@ class Diary
     result.map(&:content).join(" ")
   end
 
-  def list_all_phone_numbers
-    phone_numbers = @entries.map(&:phone_num).join(" ")
-    phone_numbers
+  def list_all_contacts
+    
   end
 end
   

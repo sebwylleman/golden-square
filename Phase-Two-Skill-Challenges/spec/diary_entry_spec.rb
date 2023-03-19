@@ -1,11 +1,6 @@
-class Diary_entry
+require diary_entry
 
-  def initialize(date, content)
-  @date = date
-  @content = content
-  end
+RSpec.describe "DiaryEntry class" do
 
-  def extract_phone_num
-    # returns phone numbers extracted from entries string
-  end
-end
+  let(:entry1) {double(:entry1, date: "12/12/12", content: "First holiday abroad with Ben", contact: "07777777199")}
+  let(:entry2) {double(:entry2, date: "17/17/17", content: "First driving lesson with Charlie", contact: "07799777199")}
