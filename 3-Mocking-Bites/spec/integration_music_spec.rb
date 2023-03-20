@@ -2,9 +2,10 @@ require "music_library"
 require "track_spec"
 
 RSpec.describe "music_library unit test" do
+
   let(:my_library) {MusicLibrary.new}
-  let(:track1) {:track1("Let it be", "The Beatles")}
-  let(:track2) {:track2("Hey Jude", "The Beatles")}
+  let(:track1) {Track.new("Hey Jude", "The Beatles")}
+  let(:track2) {Track.new("Let it be", "The Beatles")}
 
   describe "#add(track)" do
     it "adds track (instance of Track class) to the library" do
