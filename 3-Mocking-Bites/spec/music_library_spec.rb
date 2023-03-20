@@ -36,8 +36,10 @@ RSpec.describe "music_library unit test" do
   describe "#search(keyword)" do
     it "returns a list of tracks that match the keyword string" do
       my_library = MusicLibrary.new
-      track1 = double :track, matches?: true 
-      track2 = double :track, matches?: false
+      track1 = double :track
+      expect(track1).to receive(:matches?).with("Let").and_return true
+      track2 = double :track
+      expect(track2).to receive(:matches?).with("Let").and_return false
       my_library.add(track1)
       my_library.add(track2)
       expect(my_library.search("Let")).to eq [track1]
