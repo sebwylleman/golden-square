@@ -18,4 +18,21 @@ RSpec.describe "music_library unit test" do
       expect(my_library.all).to eq [track1]
     end
   end
+  describe "#all" do
+    it "lists tracks in music library" do
+      my_library.add(track1)
+      my_library.add(track2)
+      expect(my_library.all).to eq [track1, track2]
+    end
+  end
+  describe "#search(keyword)" do
+    it "returns a list of tracks that match the keyword string" do
+      my_library.add(track1)
+      my_library.add(track2)
+      expect(my_library.search("Beatles")).to eq [track1, track2]
+    end
+  end
+
+
+
 end
