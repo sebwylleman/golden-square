@@ -32,7 +32,4 @@ RSpec.describe "music_library unit test" do
       expect(my_library.search("Beatles")).to eq [track1, track2]
     end
   end
-
-
-
 end
