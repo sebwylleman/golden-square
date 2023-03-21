@@ -1,20 +1,21 @@
 require "secret_diary"
 
-RSpec.describe SecretDiary do
+RSpec.describe "secret_diary class" do
 
-  it "initialises" do
-    fake_diary = double :fake_diary
-    secret_diary = SecretDiary.new(fake_diary)
-    expect { secret_diary.read } .to raise_error("Go away!")
+  let(:diary) {double(:diary, contents: "My story")}
+  let(:secret_diary) {SecretDiary.new(diary)} 
+
+  it "throws an error by default" do
+    expect{secret_diary.read}.to raise_error "Go away!"
   end
-  it "unlocks and reads" do
-    fake_diary = double :fake_diary, read: "My secret stuff"
-    secret_diary = SecretDiary.new(fake_diary)
+  it "returns the diary contents when unlocking the diary" do
     secret_diary.unlock
-    expect(secret_diary.read).to eq("My secret stuff")
+    allow(diary).to receive(:read).and_return("My story")
+    expect(secret_diary.read).to eq "My story"
   end
-end 
-
-
-    
-  
+  it "locks the diary" do
+    secret_diary.unlock
+    secret_diary.lock
+    expect{secret_diary.read}.to raise_error "Go away!"
+  end
+end

@@ -1,8 +1,8 @@
 require "diary"
 
-RSpec.describe Diary do
-  it "initialises" do
-    diary = Diary.new("My secret stuff")
-    expect(diary.read).to eq "My secret stuff"
+RSpec.describe "Diary class" do
+  it "reads its contents" do
+    diary = Diary.new("My story")
+    expect(diary.read).to eq "My story"
   end
 end
