@@ -1,17 +1,16 @@
 class Menu
   def  initialize
-    # initialises with our premade menu hash of dishes with prices
-    # @menu = menu
-    # @dishes = select(menu.dishes) (something like that)
-
+    @menu = {
+      "Pizza" => 10.99,
+      "Burger" => 8.99,
+      "Pasta" => 12.99,
+      "Salad" => 6.99,
+      "Taco" => 3.99
+    }
   end
 
-  def list
-    # returns the menu
-    # @menu
+  def menu
+   @menu
   end
-  
-  def dishes
-    # @dishes
-  end
+
 end
