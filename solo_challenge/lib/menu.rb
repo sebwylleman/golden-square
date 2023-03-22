@@ -9,7 +9,7 @@ class Menu
     }
   end
 
-  def menu
+  def dishes
    @menu
   end
 

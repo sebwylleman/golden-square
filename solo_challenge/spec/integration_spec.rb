@@ -6,7 +6,7 @@ RSpec.describe "Integration test" do
   let(:cantine) {Menu.new}
 
   it "lists menu" do
-    expect(cantine.menu).to eq(menu = {
+    expect(cantine.dishes).to eq({
       "Pizza" => 10.99,
       "Burger" => 8.99,
       "Pasta" => 12.99,
