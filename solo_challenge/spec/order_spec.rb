@@ -42,4 +42,9 @@ RSpec.describe Order do
       expect(my_order.total).to eq 31.87
     end
   end
+  describe "when an order is initialiazed" do
+    it "saves the time whenever as soon as a new order is created" do
+      expect(my_order.order_time).to be_within(1).of(Time.now)
+    end
+  end
 end

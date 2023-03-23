@@ -2,6 +2,7 @@ class Order
   def initialize(menu)
     @tab = Hash.new(0)
     @menu = menu
+    @order_time = Time.now
   end
   
   def add(dish, quantity)
@@ -25,6 +26,10 @@ class Order
     @tab.reduce(0) do |sum, (dish, quantity)|
       sum += (quantity * @menu.dishes[dish] * 1.1).round(2)
    end
+  end
+
+  def order_time
+    @order_time
   end
 
 end
