@@ -32,4 +32,9 @@ RSpec.describe "Integration test" do
       expect(my_order.tab).to eq({"Pizza" => 1, "Salad" => 1})
     end
   end
+  describe "total" do
+    it "returns the sum of the bill with service charge" do
+      expect(my_order.total).to eq 31.87
+    end
+  end
 end
