@@ -1,24 +1,26 @@
 class Order
   def initialize(menu)
     @tab = Hash.new(0)
-    # @time = current time use API mentioned but securely. Find out why John said
-    # to make sure to not commit the api secret key. 
-    @menu = menu
-  end
-
-  def tab
-    @tab
   end
   
   def add(dish, quantity)
-    if @menu.dishes.key?(dish)
-      @tab[dish] += quantity
-    else
-      # raise some error stating that the dish isn't in the menu
-    end
+    @tab[dish] = quantity
+  end
+
+  def remove_dish(dish, quantity)
+    @tab.delete(dish)
+  end
+
+  def remove_quantity(dish, quantity)
+    @tab[dish] = quantity - 1
+  end
+  
+  def tab
+    @tab
   end
 
   def total
-    # returns the total bill with @tab
+    # calculates total bill
   end
+
 end

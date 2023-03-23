@@ -1,5 +1,5 @@
-class Menu
-  def  initialize
+class Menu 
+  def initialize
     @menu = {
       "Pizza" => 10.99,
       "Burger" => 8.99,
@@ -8,9 +8,8 @@ class Menu
       "Taco" => 3.99
     }
   end
-
+  
   def dishes
-   @menu
+    @menu
   end
-
 end

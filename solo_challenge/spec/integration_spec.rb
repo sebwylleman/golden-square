@@ -1,17 +1,35 @@
-# require "notification"
-# require "order"
 require "menu"
+require "order"
 
 RSpec.describe "Integration test" do
-  let(:cantine) {Menu.new}
+  let(:menu) {Menu.new}
+  let(:my_order) {Order.new(menu)}
 
-  it "lists menu" do
-    expect(cantine.dishes).to eq({
+  before do
+    my_order.add("Pizza", 2)
+    my_order.add("Salad", 1)
+  end
+
+  it "displays a list of dishes with prices" do
+    expect(menu.dishes).to eq({
       "Pizza" => 10.99,
       "Burger" => 8.99,
       "Pasta" => 12.99,
       "Salad" => 6.99,
       "Taco" => 3.99
     })
+  end
+  context "when ordering from the dishes list" do
+    it "adds selected dishes with quantities to an order" do
+      expect(my_order.tab).to eq({"Pizza" => 2, "Salad" => 1})
+    end
+    it "removes selected dishes from order" do
+      my_order.remove_dish("Pizza", 2)
+      expect(my_order.tab).to eq({"Salad" => 1})
+    end
+    it "removes selected quantities from order" do
+      my_order.remove_quantity("Pizza", 2)
+      expect(my_order.tab).to eq({"Pizza" => 1, "Salad" => 1})
+    end
   end
 end
