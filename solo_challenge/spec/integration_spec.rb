@@ -1,9 +1,12 @@
 require "menu"
 require "order"
+require "notification"
+require "time"
 
 RSpec.describe "Integration test" do
   let(:menu) {Menu.new}
   let(:my_order) {Order.new(menu)}
+  let(:notification) {Notification.new(my_order.order_time)}
 
   before do
     my_order.add("Pizza", 2)
@@ -40,6 +43,11 @@ RSpec.describe "Integration test" do
   describe "when an order is initialiazed" do
     it "saves the time whenever as soon as a new order is created" do
       expect(my_order.order_time).to be_within(1).of(Time.now)
+    end
+    it "calculates and returns the delivery time of the order" do
+      expected_delivery_time = my_order.order_time + (30 * 60)
+      delivery_time = Time.parse(notification.delivery_time_formatted)
+      expect(delivery_time).to be_within(60).of(expected_delivery_time)
     end
   end
 end
