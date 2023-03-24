@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'twilio-ruby'
+
 class Notification
   attr_reader :order_time
 
@@ -14,8 +17,15 @@ class Notification
   end
 
   def send_notification
-    # returns notification of order in this format:
-    # "Thank you! Your order was placed and will be delivered before 18:52"
-    # replace 18:52 by the output of delivery time. 
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    message = @client.messages.create(
+                             body: "Thank you! Your order was placed and will be delivered before #{delivery_time_formatted}",
+                             from: ENV['CUSTOMER_PHONE_NUMBER'],
+                             to: ENV['CUSTOMER_PHONE_NUMBER']
+                           )
+    puts message.sid
   end
 end

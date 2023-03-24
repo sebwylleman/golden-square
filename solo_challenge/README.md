@@ -1,4 +1,6 @@
-# Solo Project Instructions:
+# Solo Project
+
+## Assignment
 
 Here is a project to test your golden square skills overall:
 
@@ -25,3 +27,7 @@ doubles too.
 Fair warning: if you push your Twilio API Key to a public GitHub repository,
 anyone will be able to see and use it. What are the security implications of
 that? How will you keep that information out of your repository?
+
+## Usage
+
+To run the code do...

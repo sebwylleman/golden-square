@@ -2,6 +2,8 @@ require "menu"
 require "order"
 require "notification"
 require "time"
+require 'twilio-ruby'
+require 'rubygems'
 
 RSpec.describe "Integration test" do
   let(:menu) {Menu.new}
@@ -48,6 +50,9 @@ RSpec.describe "Integration test" do
       expected_delivery_time = my_order.order_time + (30 * 60)
       delivery_time = Time.parse(notification.delivery_time_formatted)
       expect(delivery_time).to be_within(60).of(expected_delivery_time)
+    end
+    it "sends a SMS confirmation of order and delivery estimate time" do
+      expect(notification.send_notification).to eq("Thank you! Your order was placed and will be delivered before #{delivery_time_formatted}")
     end
   end
 end

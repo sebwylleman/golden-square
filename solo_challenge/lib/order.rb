@@ -26,7 +26,3 @@ attr_reader :tab, :order_time
    end
   end
 end
-
-# ask one of the coach, that once my project finished, how can I run let my user
-# know what the write to run this script. Do I do instructions section in readme?
-# or leave a header / footer comment as intructions?
